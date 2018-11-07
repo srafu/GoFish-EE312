@@ -35,6 +35,7 @@ class Deck
 
   private:
 
+  	void swap(int card1, int card2);
     Card myCards[SIZE];
     int myIndex;  // current card to deal
 };
