@@ -41,13 +41,13 @@ string Card::suitString(Card::Suit s) const {
     string suitPrint;
 
     if (s==hearts)
-        suitPrint.append("h");
+        suitPrint = "h";
     else if (s==spades)
-        suitPrint.append("s");
+        suitPrint = "s";
     else if (s==clubs)
-        suitPrint.append("c");
+        suitPrint = "c";
     else if (s==diamonds)
-        suitPrint.append("d");
+        suitPrint = "d";
 
     return suitPrint;
 }
@@ -57,16 +57,16 @@ string Card::rankString(int r) const {
 
     if (r > 1 && r < 11){
         string num = to_string(r);
-        rankPrint.append(num);
+        rankPrint = num;
     }
     else if (r == 1)
-        rankPrint.append("A");
+        rankPrint = "A";
     else if (r == 11)
-        rankPrint.append("J");
+        rankPrint = "J";
     else if (r==12)
-        rankPrint.append("Q");
+        rankPrint = "Q";
     else if (r==13)
-        rankPrint.append("K");
+        rankPrint = "K";
 
     return rankPrint;
 }
@@ -75,9 +75,8 @@ string Card::rankString(int r) const {
 string Card::toString() const {
     string cardPrint;
 
-    cardPrint.append(Card::rankString(myRank));
+    cardPrint = Card::rankString(myRank);
     cardPrint.append(Card::suitString(mySuit));
-    cardPrint.append("\0");
 
     return cardPrint;
 }
@@ -100,5 +99,6 @@ bool Card::operator==(const Card &rhs) const {
 
 
 ostream& operator << (ostream& out, const Card& c){
-    cout<<c.toString();
+    out<<c.toString();
+    return out;
 }
