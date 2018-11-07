@@ -1,7 +1,8 @@
-#include "card.h"
-#include "deck.h"
 #include <cstdlib>
 #include <ctime>
+
+#include "card.h"
+#include "deck.h"
 
 static const int SIZE = 52;
 Card myCards[SIZE];
@@ -36,7 +37,7 @@ Card Deck::dealCard(){
 
 		return currentCard;
 	} else {
-		//Fail? What does that mean?
+		return Card();
 	}
 }
 
