@@ -9,9 +9,21 @@
 using namespace std;
 
 
+int main(){
+    Card card1(1, Card::spades);
+    Card card2(12, Card::hearts);
+    Card card3(4, Card::hearts);
+    Card card4(1, Card::spades);
+
+    cout<<card1<<endl;
+    cout<<card2<<endl;
+}
+
+
+
+/**
 // PROTOTYPES for functions used by this demonstration program:
 void dealHand(Deck &d, Player &p, int numCards);
-
 
 
 
@@ -42,6 +54,8 @@ void dealHand(Deck &d, Player &p, int numCards)
       p.addCard(d.dealCard());
 }
    
+*/
+
 
 
 
