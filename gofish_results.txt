@@ -1,0 +1,459 @@
+Deck shuffled!
+Dealing cards: 
+Arul's hand: 4c, Qd, 9d, 5d, 9s, 5c, 7h, 
+Juan's hand: 6s, 10s, 6d, 3h, 10h, 8d, 9c, 
+Arul books 9d and 9s
+Arul books 5d and 5c
+Juan books 6s and 6d
+Juan books 10s and 10h
+
+Before first turn: 
+Arul's hand: 4c, Qd, 7h, 
+Juan's hand: 3h, 8d, 9c, 
+
+Arul's turn!
+Arul asks: Do you have a 4
+Juan responds: no, Go Fish.
+Arul picks up 7c
+Arul books 7h and 7c
+Arul's hand: 4c, Qd, 
+Juan's hand: 3h, 8d, 9c, 
+37 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 3
+Arul responds: no, Go Fish.
+Juan picks up 2d
+Arul's hand: 4c, Qd, 
+Juan's hand: 3h, 8d, 9c, 2d, 
+36 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: no, Go Fish.
+Arul picks up 3c
+Arul's hand: 4c, Qd, 3c, 
+Juan's hand: 3h, 8d, 9c, 2d, 
+35 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 8
+Arul responds: no, Go Fish.
+Juan picks up 3s
+Juan books 3h and 3s
+Arul's hand: 4c, Qd, 3c, 
+Juan's hand: 8d, 9c, 2d, 
+34 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 3
+Juan responds: no, Go Fish.
+Arul picks up 8h
+Arul's hand: 4c, Qd, 3c, 8h, 
+Juan's hand: 8d, 9c, 2d, 
+33 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 2
+Arul responds: no, Go Fish.
+Juan picks up Js
+Arul's hand: 4c, Qd, 3c, 8h, 
+Juan's hand: 8d, 9c, 2d, Js, 
+32 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 8
+Juan responds: yes, I do
+Arul books 8h and 8d
+Arul's hand: 4c, Qd, 3c, 
+Juan's hand: 9c, 2d, Js, 
+32 cards left in the deck
+
+
+Arul asks: Do you have a 4
+Juan responds: no, Go Fish.
+Arul picks up 10c
+Arul's hand: 4c, Qd, 3c, 10c, 
+Juan's hand: 9c, 2d, Js, 
+31 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 9
+Arul responds: no, Go Fish.
+Juan picks up 5s
+Arul's hand: 4c, Qd, 3c, 10c, 
+Juan's hand: 9c, 2d, Js, 5s, 
+30 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: no, Go Fish.
+Arul picks up 4h
+Arul books 4c and 4h
+Arul's hand: Qd, 3c, 10c, 
+Juan's hand: 9c, 2d, Js, 5s, 
+29 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 2
+Arul responds: no, Go Fish.
+Juan picks up As
+Arul's hand: Qd, 3c, 10c, 
+Juan's hand: 9c, 2d, Js, 5s, As, 
+28 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 10
+Juan responds: no, Go Fish.
+Arul picks up 7s
+Arul's hand: Qd, 3c, 10c, 7s, 
+Juan's hand: 9c, 2d, Js, 5s, As, 
+27 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a J
+Arul responds: no, Go Fish.
+Juan picks up 2h
+Juan books 2d and 2h
+Arul's hand: Qd, 3c, 10c, 7s, 
+Juan's hand: 9c, Js, 5s, As, 
+26 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 7
+Juan responds: no, Go Fish.
+Arul picks up 9h
+Arul's hand: Qd, 3c, 10c, 7s, 9h, 
+Juan's hand: 9c, Js, 5s, As, 
+25 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a A
+Arul responds: no, Go Fish.
+Juan picks up Qs
+Arul's hand: Qd, 3c, 10c, 7s, 9h, 
+Juan's hand: 9c, Js, 5s, As, Qs, 
+24 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 9
+Juan responds: yes, I do
+Arul books 9h and 9c
+Arul's hand: Qd, 3c, 10c, 7s, 
+Juan's hand: Js, 5s, As, Qs, 
+24 cards left in the deck
+
+
+Arul asks: Do you have a Q
+Juan responds: yes, I do
+Arul books Qd and Qs
+Arul's hand: 3c, 10c, 7s, 
+Juan's hand: Js, 5s, As, 
+24 cards left in the deck
+
+
+Arul asks: Do you have a 10
+Juan responds: no, Go Fish.
+Arul picks up Ks
+Arul's hand: 3c, 10c, 7s, Ks, 
+Juan's hand: Js, 5s, As, 
+23 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a J
+Arul responds: no, Go Fish.
+Juan picks up Kd
+Arul's hand: 3c, 10c, 7s, Ks, 
+Juan's hand: Js, 5s, As, Kd, 
+22 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 7
+Juan responds: no, Go Fish.
+Arul picks up Jd
+Arul's hand: 3c, 10c, 7s, Ks, Jd, 
+Juan's hand: Js, 5s, As, Kd, 
+21 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 5
+Arul responds: no, Go Fish.
+Juan picks up 5h
+Juan books 5s and 5h
+Arul's hand: 3c, 10c, 7s, Ks, Jd, 
+Juan's hand: Js, As, Kd, 
+20 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a K
+Juan responds: yes, I do
+Arul books Ks and Kd
+Arul's hand: 3c, 10c, 7s, Jd, 
+Juan's hand: Js, As, 
+20 cards left in the deck
+
+
+Arul asks: Do you have a 3
+Juan responds: no, Go Fish.
+Arul picks up Ah
+Arul's hand: 3c, 10c, 7s, Jd, Ah, 
+Juan's hand: Js, As, 
+19 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a J
+Arul responds: yes, I do
+Juan books Js and Jd
+Arul's hand: 3c, 10c, 7s, Ah, 
+Juan's hand: As, 
+19 cards left in the deck
+
+
+Juan asks: Do you have a A
+Arul responds: yes, I do
+Juan books As and Ah
+Arul's hand: 3c, 10c, 7s, 
+Juan's hand: 
+19 cards left in the deck
+
+
+Juan picks up 4d
+Arul's hand: 3c, 10c, 7s, 
+Juan's hand: 4d, 
+18 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 10
+Juan responds: no, Go Fish.
+Arul picks up 3d
+Arul books 3c and 3d
+Arul's hand: 10c, 7s, 
+Juan's hand: 4d, 
+17 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 4
+Arul responds: no, Go Fish.
+Juan picks up Ac
+Arul's hand: 10c, 7s, 
+Juan's hand: 4d, Ac, 
+16 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 10
+Juan responds: no, Go Fish.
+Arul picks up Kh
+Arul's hand: 10c, 7s, Kh, 
+Juan's hand: 4d, Ac, 
+15 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a A
+Arul responds: no, Go Fish.
+Juan picks up 7d
+Arul's hand: 10c, 7s, Kh, 
+Juan's hand: 4d, Ac, 7d, 
+14 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a 7
+Juan responds: yes, I do
+Arul books 7s and 7d
+Arul's hand: 10c, Kh, 
+Juan's hand: 4d, Ac, 
+14 cards left in the deck
+
+
+Arul asks: Do you have a 10
+Juan responds: no, Go Fish.
+Arul picks up 8s
+Arul's hand: 10c, Kh, 8s, 
+Juan's hand: 4d, Ac, 
+13 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 4
+Arul responds: no, Go Fish.
+Juan picks up 4s
+Juan books 4d and 4s
+Arul's hand: 10c, Kh, 8s, 
+Juan's hand: Ac, 
+12 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a K
+Juan responds: no, Go Fish.
+Arul picks up 10d
+Arul books 10c and 10d
+Arul's hand: Kh, 8s, 
+Juan's hand: Ac, 
+11 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a A
+Arul responds: no, Go Fish.
+Juan picks up Kc
+Arul's hand: Kh, 8s, 
+Juan's hand: Ac, Kc, 
+10 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a K
+Juan responds: yes, I do
+Arul books Kh and Kc
+Arul's hand: 8s, 
+Juan's hand: Ac, 
+10 cards left in the deck
+
+
+Arul asks: Do you have a 8
+Juan responds: no, Go Fish.
+Arul picks up Qh
+Arul's hand: 8s, Qh, 
+Juan's hand: Ac, 
+9 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a A
+Arul responds: no, Go Fish.
+Juan picks up 2c
+Arul's hand: 8s, Qh, 
+Juan's hand: Ac, 2c, 
+8 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: no, Go Fish.
+Arul picks up Jh
+Arul's hand: 8s, Qh, Jh, 
+Juan's hand: Ac, 2c, 
+7 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 2
+Arul responds: no, Go Fish.
+Juan picks up 6c
+Arul's hand: 8s, Qh, Jh, 
+Juan's hand: Ac, 2c, 6c, 
+6 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a J
+Juan responds: no, Go Fish.
+Arul picks up 8c
+Arul books 8s and 8c
+Arul's hand: Qh, Jh, 
+Juan's hand: Ac, 2c, 6c, 
+5 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 6
+Arul responds: no, Go Fish.
+Juan picks up 2s
+Juan books 2c and 2s
+Arul's hand: Qh, Jh, 
+Juan's hand: Ac, 6c, 
+4 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: no, Go Fish.
+Arul picks up Jc
+Arul books Jh and Jc
+Arul's hand: Qh, 
+Juan's hand: Ac, 6c, 
+3 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a A
+Arul responds: no, Go Fish.
+Juan picks up Ad
+Juan books Ac and Ad
+Arul's hand: Qh, 
+Juan's hand: 6c, 
+2 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: no, Go Fish.
+Arul picks up 6h
+Arul's hand: Qh, 6h, 
+Juan's hand: 6c, 
+1 cards left in the deck
+
+
+Juan's turn!
+Juan asks: Do you have a 6
+Arul responds: yes, I do
+Juan books 6c and 6h
+Arul's hand: Qh, 
+Juan's hand: 
+1 cards left in the deck
+
+
+Juan picks up Qc
+Arul's hand: Qh, 
+Juan's hand: Qc, 
+0 cards left in the deck
+
+
+Arul's turn!
+Arul asks: Do you have a Q
+Juan responds: yes, I do
+Arul books Qh and Qc
+Arul's hand: 
+Juan's hand: 
+0 cards left in the deck
+
+
+Arul's hand: 
+Juan's hand: 
+0 cards left in the deck
+
+
+Juan's turn!
+Arul's hand: 
+Juan's hand: 
+0 cards left in the deck
+
+
+
+Arul's Score is: 15 books
+Juan's Score is: 11 books!
+Arul wins!

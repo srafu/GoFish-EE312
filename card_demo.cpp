@@ -10,31 +10,20 @@
 using namespace std;
 
 
-void dealHand(Deck &d, Player &p, int numCards) {
-    if(d.size() > 0) {
-        Card temp;
-        for (int i = 0; i < numCards; i++) {
-            temp = d.dealCard();
-            p.addCard(temp);
-        }
-        if (numCards==1)
-            cout << p.getName() << " picks up " << temp << endl;
-    }
+void dealHand(Deck &d, Player &p, int numCards);
+void bookCards(Player &p);
 
-}
-
-
-
+ofstream myfile;
 
 int main(){
 
-    ofstream myfile;
+    
     myfile.open("gofish_results.txt");
     if (myfile.is_open()){
-        cout<<"File open";
+        //cout<<"File open";
     }
     else {
-        cout << "Failed to open";
+        //cout << "Failed to open";
         return 0;
     }
 
@@ -59,12 +48,8 @@ int main(){
     Card choice;
 
     //first get rid of initial books
-    while(p1.checkHandForBook(c1,c2)){
-        p1.bookCards(c1,c2);
-    }
-    while(p2.checkHandForBook(c1,c2)){
-        p2.bookCards(c1,c2);
-    }
+    bookCards(p1);
+    bookCards(p2);
 
     //show updated hands before first turn
     myfile << "\nBefore first turn: \n";
@@ -76,6 +61,7 @@ int main(){
     while(d.size() > 0 || p1.getHandSize()>0 || p2.getHandSize()>0) {
 
         //PLAYER 1 GO
+        myfile << p1.getName() << "'s turn!" << endl;
         goFishFlag = true;
         //repeat until Go Fish
         while (goFishFlag){
@@ -92,6 +78,7 @@ int main(){
                     dealHand(d, p1, 1);
                     goFishFlag = false;
                 }
+
             }
             //if no cards in hand, pick up
             else{
@@ -100,9 +87,7 @@ int main(){
             }
 
             //book pairs
-            while(p1.checkHandForBook(c1,c2)){
-                p1.bookCards(c1,c2);
-            }
+            bookCards(p1);
 
             //show hands and deck size after turn
             myfile << p1.showHand() << endl;
@@ -111,6 +96,7 @@ int main(){
         }
 
         //PLAYER 2 GO
+        myfile << p2.getName() << "'s turn!" << endl;
         goFishFlag = true;
         //repeat until Go Fish
         while (goFishFlag){
@@ -135,9 +121,7 @@ int main(){
             }
 
             //book pairs
-            while(p2.checkHandForBook(c1,c2)){
-                p2.bookCards(c1,c2);
-            }
+            bookCards(p2);
 
             //show hands and deck size after turn
             myfile << p1.showHand() << endl;
@@ -147,26 +131,46 @@ int main(){
     }
 
 
-    myfile << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books!\n";
-    myfile << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!\n";
+    myfile << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books" << endl;
+    myfile << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!" << endl;
 
     if (p1.getBookSize() > p2.getBookSize()){
-        myfile << p1.getName() << " wins!";
+        myfile << p1.getName() << " wins!"<<endl;
     }
     else if (p2.getBookSize() > p1.getBookSize()){
-        myfile << p2.getName() << " wins!";
+        myfile << p2.getName() << " wins!"<<endl;
     }
     else{
-        myfile <<"TIE GAME";
+        myfile <<"TIE GAME"<<endl;
     }
 
-
+    myfile.close();
 
 }
 
 
+void dealHand(Deck &d, Player &p, int numCards) {
+    if(d.size() > 0) {
+        Card temp;
+        for (int i = 0; i < numCards; i++) {
+            temp = d.dealCard();
+            p.addCard(temp);
+        }
+        if (numCards==1)
+            myfile << p.getName() << " picks up " << temp << endl;
+    }
 
+}
 
+void bookCards(Player &p){
+    Card c1;
+    Card c2;
+
+    while(p.checkHandForBook(c1,c2)){
+        p.bookCards(c1,c2);
+        myfile << p.getName() << " books " << c1 << " and " << c2 << endl;
+    }
+}
 
 
 

@@ -27,21 +27,8 @@ void Player::bookCards(Card c1, Card c2){
     myBook.push_back(c2);
 
     //remove the cards from the deck
-    vector<Card>::iterator it;
-    for(it = myHand.begin(); it != myHand.end(); it++){
-        if(*it == c1){
-            myHand.erase(it);
-            break;
-        }
-    }
-
-    for(it = myHand.begin(); it != myHand.end(); it++){
-        if(*it == c2){
-            myHand.erase(it);
-            break;
-        }
-    }
-    cout << myName << " booked the " << c1.rankString(c1.getRank()) << "'s\n";
+    this->removeCardFromHand(c1);
+    this->removeCardFromHand(c2);
 }
 
 //OPTIONAL
@@ -121,15 +108,19 @@ bool Player::cardInHand(Card c) const{
 //Remove the card c from the hand and return it to the caller
 Card Player::removeCardFromHand(Card c){
     vector<Card>::iterator it;
-    Card temp;
-    for(it = myHand.begin(); it != myHand.end(); it++){
+    bool cardFound = false;
+    for(it = myHand.begin(); it != myHand.end() && !cardFound; it++){
         if((*it) == c){
-            temp = *it;
-            myHand.erase(it);
-            break;
+            cardFound = true;
         }
     }
-    return temp;
+
+    if(cardFound){
+        it = --it;
+        myHand.erase(it);
+    }
+
+    return c;
 }
 
 string Player::showHand() const{
