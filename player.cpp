@@ -1,6 +1,8 @@
 #include "card.h"
 #include "player.h"
 
+
+
 using namespace std;
 
 vector <Card> myHand;
@@ -50,8 +52,8 @@ bool Player::checkHandForBook(Card &c1, Card &c2){
         //search for a match in the cards beyond the card
         for(match= it; match != myHand.end() && !matchFound; ++match){
             if((*it).getRank() == (*match).getRank()){
-                *c1 = *it;
-                *c2 = *match;
+                c1 = *it;
+                c2 = *match;
             }
         }
     }
@@ -108,21 +110,21 @@ Card Player::removeCardFromHand(Card c){
 
 string Player::showHand() const{
     string hand = myName;
-    hand.append("'s hand: ")
-    vector<Card>::iterator it;
-    for(it = myHand.begin(); it != myHand.end(); it++){
-        hand.append((*it).toString());
-        hand.append(", ")
+    hand.append("'s hand: ");
+
+    for(int i = 0; i < myHand.size(); i++){
+        hand.append(myHand[i].toString());
+        hand.append(", ");
     }
 
 }
 string Player::showBooks() const{
     string book = myName;
-    hand.append("'s book: ")
-    vector<Card>::iterator it;
-    for(it = book.begin(); it != book.end(); it++){
-        hand.append((*it).toString());
-        hand.append(", ")
+    book.append("'s book: ");
+
+    for(int i = 0; i < myBook.size(); i++){
+        book.append(myBook[i].toString());
+        book.append(", ");
     }
 }
 
