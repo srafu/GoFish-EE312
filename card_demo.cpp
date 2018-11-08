@@ -19,6 +19,9 @@ int main(){
     Deck d;
     d.shuffle();
 
+    cout<<"Deck shuffled!"<<endl;
+
+
     Player p1("Arul");
     Player p2("Juan");
 
@@ -29,9 +32,15 @@ int main(){
     dealHand(d, p1, 7);
     dealHand(d, p2, 7);
 
+
+    cout << "Deal: \n";
+    cout <<  p1.showHand() << endl;
+    cout << p2.showHand() << endl << endl;
+
+
     Card c1;
     Card c2;
-    //first get rid of intial books
+    //first get rid of initial books
     while(p1.checkHandForBook(c1,c2)){
         p1.bookCards(c1,c2);
     }
@@ -40,8 +49,6 @@ int main(){
         p2.bookCards(c1,c2);
     }
 
-    cout << p1.showHand() << endl;
-    cout << p2.showHand() << endl;  
 
     while(d.size() > 0){
         Card choice = p1.chooseCardFromHand();

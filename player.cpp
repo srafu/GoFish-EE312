@@ -57,7 +57,7 @@ bool Player::checkHandForBook(Card &c1, Card &c2){
         vector<Card>::iterator match;
         //search for a match in the cards beyond the card
         for(match= it; match != myHand.end() && !matchFound; ++match){
-            if((*it).getRank() == (*match).getRank()){
+            if((*it).getRank() == (*match).getRank() && it != match){
                 c1 = *it;
                 c2 = *match;
                 matchFound = true;
@@ -117,8 +117,6 @@ Card Player::removeCardFromHand(Card c){
     vector<Card>::iterator it;
     Card temp;
     for(it = myHand.begin(); it != myHand.end(); it++){
-        cout << *it << endl;
-        cout << c << endl;
         if(*it == c){
             temp = *it;
             myHand.erase(it);
