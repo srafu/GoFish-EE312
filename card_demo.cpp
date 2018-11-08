@@ -17,6 +17,14 @@ int main(){
 
     cout<<card1<<endl;
     cout<<card2<<endl;
+
+    Deck myDeck;
+    Card fromDeck;
+    while(fromDeck.getRank() != -1){
+        cout << fromDeck << endl;
+        fromDeck = myDeck.dealCard();
+    }
+
 }
 
 
