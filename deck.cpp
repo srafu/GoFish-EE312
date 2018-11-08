@@ -16,7 +16,7 @@ Deck::Deck(){
 	for(int i = 0; i < 4; i++){
 		for(int j = 1; j < 13 + 1; j++){
 			//j*i + j returns current card in deck
-			myCards[(j-1)*i + (j-1)] = Card(j, suits[i]);
+			myCards[i*13 + (j-1)] = Card(j, suits[i]);
 		}
 	}
 	//seed the random number

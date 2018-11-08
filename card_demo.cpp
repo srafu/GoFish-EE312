@@ -15,11 +15,12 @@ int main(){
     Card card3(4, Card::hearts);
     Card card4(1, Card::spades);
 
-    cout<<card1<<endl;
-    cout<<card2<<endl;
+    //cout<<card1<<endl;
+    //cout<<card2<<endl;
 
     Deck myDeck;
-    Card fromDeck;
+    myDeck.shuffle();
+    Card fromDeck = myDeck.dealCard();
     while(fromDeck.getRank() != -1){
         cout << fromDeck << endl;
         fromDeck = myDeck.dealCard();
