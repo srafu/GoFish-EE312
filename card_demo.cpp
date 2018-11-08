@@ -10,13 +10,15 @@ using namespace std;
 
 
 void dealHand(Deck &d, Player &p, int numCards) {
-    Card temp;
-    for (int i = 0; i < numCards; i++) {
-        temp = d.dealCard();
-        p.addCard(temp);
-    }
-    if (numCards==1){
-        cout << "Player picks up " << temp << endl;
+    if(d.size() > 0) {
+        Card temp;
+        for (int i = 0; i < numCards; i++) {
+            temp = d.dealCard();
+            p.addCard(temp);
+        }
+        if (numCards==1){
+            cout << p.getName() << " picks up " << temp << endl;
+        }
     }
 
 }
@@ -72,7 +74,7 @@ int main(){
     while(d.size() > 0){
         Card choice = p1.chooseCardFromHand();
 
-        cout << p1.getName() <<" asks: Do you have a " << choice.getRank() << endl;
+        cout << p1.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
 
         if(p2.rankInHand(choice)){
             cout << p2.getName() << " responds: yes, I do" << endl;
@@ -97,7 +99,7 @@ int main(){
 
 
         choice = p2.chooseCardFromHand();
-        cout << p2.getName() <<" asks: Do you have a " << choice.getRank() << endl;
+        cout << p2.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
         if(p1.rankInHand(choice)){
             cout << p1.getName() << " responds: yes, I do" << endl;
             p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
