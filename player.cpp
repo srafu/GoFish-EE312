@@ -22,6 +22,7 @@ void Player::addCard(Card c){
 }
 
 void Player::bookCards(Card c1, Card c2){
+    cout << "Booking " << c1 << " and " << c2 << endl;
     //add the cards to the book
     myBook.push_back(c1);
     myBook.push_back(c2);
@@ -31,12 +32,14 @@ void Player::bookCards(Card c1, Card c2){
     for(it = myHand.begin(); it != myHand.end(); it++){
         if(*it == c1){
             myHand.erase(it);
+            break;
         }
     }
 
     for(it = myHand.begin(); it != myHand.end(); it++){
         if(*it == c2){
             myHand.erase(it);
+            break;
         }
     }
 }
@@ -83,7 +86,7 @@ Card Player::getCardOfSameRank(Card c) const{
     int rank = c.getRank();
     int handSize = myHand.size();
     for (int i = 0; i<handSize; i++){
-        if (myHand[i].getRank()==rank){
+        if (myHand[i].getRank()==rank && myHand[i] != c){
             return myHand[i];
         }
     }
