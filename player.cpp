@@ -75,6 +75,16 @@ bool Player::rankInHand(Card c) const{
     return false;
 }
 
+Card Player::getCardOfSameRank(Card c) const{
+    int rank = c.getRank();
+    int handSize = myHand.size();
+    for (int i = 0; i<handSize; i++){
+        if (myHand[i].getRank()==rank){
+            return myHand[i];
+        }
+    }
+}
+
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand(){
