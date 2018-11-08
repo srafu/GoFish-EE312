@@ -9,10 +9,16 @@
 using namespace std;
 
 
-void dealHand(Deck &d, Player &p, int numCards)
-{
-   for (int i=0; i < numCards; i++)
-      p.addCard(d.dealCard());
+void dealHand(Deck &d, Player &p, int numCards) {
+    Card temp;
+    for (int i = 0; i < numCards; i++) {
+        temp = d.dealCard();
+        p.addCard(temp);
+    }
+    if (numCards==1){
+        cout << "Player picks up " << temp << endl;
+    }
+
 }
 
 int main(){
@@ -33,7 +39,7 @@ int main(){
     dealHand(d, p2, 7);
 
 
-    cout << "Deal: \n";
+    cout << "Dealing cards: \n";
     cout <<  p1.showHand() << endl;
     cout << p2.showHand() << endl << endl;
 
@@ -44,6 +50,16 @@ int main(){
     while(p1.checkHandForBook(c1,c2)){
         p1.bookCards(c1,c2);
     }
+
+    cout << "Before first turn: \n";
+    cout <<  p1.showHand() << endl;
+    cout << p2.showHand() << endl << endl;
+
+    cout << endl << endl;
+
+
+
+
 
     while(p2.checkHandForBook(c1,c2)){
         p2.bookCards(c1,c2);
@@ -56,8 +72,10 @@ int main(){
         cout << p1.getName() <<" asks: Do you have a " << choice.getRank() << endl;
 
         if(p2.rankInHand(choice)){
+            cout << p2.getName() << " responds: yes, I do" << endl;
             p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
         } else {
+            cout << p2.getName() << " responds: no, Go Fish." << endl;
             dealHand(d, p1, 1);
         }
 
@@ -66,13 +84,17 @@ int main(){
         }
 
         cout << p1.showHand() << endl;
-        cout << p2.showHand() << endl;   
+        cout << p2.showHand() << endl;
+
+        cout <<endl << endl;
 
         choice = p2.chooseCardFromHand();
         cout << p2.getName() <<" asks: Do you have a " << choice.getRank() << endl;
         if(p1.rankInHand(choice)){
+            cout << p1.getName() << " responds: yes, I do" << endl;
             p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
         } else {
+            cout << p1.getName() << " responds: no, Go Fish." << endl;
             dealHand(d, p2, 1);
         }    
 
@@ -81,7 +103,9 @@ int main(){
         }
 
         cout << p1.showHand() << endl;
-        cout << p2.showHand() << endl;         
+        cout << p2.showHand() << endl;
+
+        cout <<endl << endl;
     }
 
 }
