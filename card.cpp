@@ -17,7 +17,7 @@ Card::Card(int rank, Suit suit){
     if (rank>0 && rank<14)
         myRank = rank;
     else
-        myRank = 1;
+        myRank = -1;
     mySuit = suit;
 }
 
