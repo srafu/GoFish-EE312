@@ -32,7 +32,10 @@ void Player::bookCards(Card c1, Card c2){
         if(*it == c1){
             myHand.erase(it);
         }
-        else if(*it == c2){
+    }
+
+    for(it = myHand.begin(); it != myHand.end(); it++){
+        if(*it == c2){
             myHand.erase(it);
         }
     }
@@ -54,6 +57,7 @@ bool Player::checkHandForBook(Card &c1, Card &c2){
             if((*it).getRank() == (*match).getRank()){
                 c1 = *it;
                 c2 = *match;
+                matchFound = true;
             }
         }
     }
@@ -110,6 +114,8 @@ Card Player::removeCardFromHand(Card c){
     vector<Card>::iterator it;
     Card temp;
     for(it = myHand.begin(); it != myHand.end(); it++){
+        cout << *it << endl;
+        cout << c << endl;
         if(*it == c){
             temp = *it;
             myHand.erase(it);
@@ -127,6 +133,8 @@ string Player::showHand() const{
         hand.append(", ");
     }
 
+    return hand;
+
 }
 string Player::showBooks() const{
     string book = myName;
@@ -136,6 +144,8 @@ string Player::showBooks() const{
         book.append(myBook[i].toString());
         book.append(", ");
     }
+
+    return book;
 }
 
 int Player::getHandSize() const{

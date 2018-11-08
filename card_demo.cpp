@@ -40,23 +40,40 @@ int main(){
         p2.bookCards(c1,c2);
     }
 
+    cout << p1.showHand() << endl;
+    cout << p2.showHand() << endl;  
+
     while(d.size() > 0){
         Card choice = p1.chooseCardFromHand();
+
+        cout << p1.getName() <<" asks: Do you have a " << choice.getRank() << endl;
+
         if(p2.rankInHand(choice)){
             p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
         } else {
             dealHand(d, p1, 1);
         }
 
+        while(p1.checkHandForBook(c1,c2)){
+            p1.bookCards(c1,c2);
+        }
+
         cout << p1.showHand() << endl;
+        cout << p2.showHand() << endl;   
 
         choice = p2.chooseCardFromHand();
+        cout << p2.getName() <<" asks: Do you have a " << choice.getRank() << endl;
         if(p1.rankInHand(choice)){
             p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
         } else {
             dealHand(d, p2, 1);
         }    
 
+        while(p2.checkHandForBook(c1,c2)){
+            p2.bookCards(c1,c2);
+        }
+
+        cout << p1.showHand() << endl;
         cout << p2.showHand() << endl;         
     }
 
