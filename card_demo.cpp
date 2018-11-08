@@ -22,6 +22,9 @@ void dealHand(Deck &d, Player &p, int numCards) {
 
 }
 
+
+
+
 int main(){
 
     //create and shuffle deck
@@ -32,9 +35,6 @@ int main(){
     //create two players and deal hands, and then show cards
     Player p1("Arul");
     Player p2("Juan");
-    Player players[2];
-    players[0] = p1;
-    players[1] = p2;
     dealHand(d, p1, 7);
     dealHand(d, p2, 7);
     cout << "Dealing cards: \n";
@@ -61,104 +61,79 @@ int main(){
     cout << endl << endl;
 
 
-    while(d.size() > 0) {
+    bool goFishFlag;
+
+    while(d.size() > 0 || p1.getHandSize()>0 || p2.getHandSize()>0) {
 
         //PLAYER 1 GO
-        //ask for card
-        if (p1.getHandSize() > 0) {
-            choice = p1.chooseCardFromHand();
-            cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-            //hand over card or go fish
-            if (p2.rankInHand(choice)) {
-                cout << p2.getName() << " responds: yes, I do" << endl;
-                p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
-            } else {
-                cout << p2.getName() << " responds: no, Go Fish." << endl;
-                dealHand(d, p1, 1);
+        goFishFlag = true;
+        while (goFishFlag){
+            if (p1.getHandSize() > 0) {
+                //ask for card
+                choice = p1.chooseCardFromHand();
+                cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+                //hand over card or go fish
+                if (p2.rankInHand(choice)) {
+                    cout << p2.getName() << " responds: yes, I do" << endl;
+                    p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
+                } else {
+                    cout << p2.getName() << " responds: no, Go Fish." << endl;
+                    dealHand(d, p1, 1);
+                    goFishFlag = false;
+                }
             }
+                //if no cards in hand, pick up
+            else{
+                dealHand(d, p1, 1);
+                goFishFlag = false;
+            }
+
+            //book pairs
+            while(p1.checkHandForBook(c1,c2)){
+                p1.bookCards(c1,c2);
+            }
+
+            //show hands and deck size after turn
+            cout << p1.showHand() << endl;
+            cout << p2.showHand() << endl;
+            cout << d.size() << " cards left in the deck" << endl << endl << endl;
         }
-        //if no cards in hand, pick up
-        else{
-            dealHand(d, p1, 1);
-        }
-
-        //book pairs
-        while(p1.checkHandForBook(c1,c2)){
-            p1.bookCards(c1,c2);
-        }
-
-        //show hands and deck size after turn
-        cout << p1.showHand() << endl;
-        cout << p2.showHand() << endl;
-        cout << d.size() << " cards left in the deck" << endl << endl << endl;
-
-
-
 
         //PLAYER 2 GO
-        //ask for card
-        if (p2.getHandSize()>0) {
-            choice = p2.chooseCardFromHand();
-            cout << p2.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-            //hand over card or go fish
-            if (p1.rankInHand(choice)) {
-                cout << p1.getName() << " responds: yes, I do" << endl;
-                p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
-            } else {
-                cout << p1.getName() << " responds: no, Go Fish." << endl;
-                dealHand(d, p2, 1);
+        goFishFlag = true;
+        while (goFishFlag){
+            if (p2.getHandSize() > 0) {
+                //ask for card
+                choice = p2.chooseCardFromHand();
+                cout << p2.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+                //hand over card or go fish
+                if (p1.rankInHand(choice)) {
+                    cout << p1.getName() << " responds: yes, I do" << endl;
+                    p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
+                } else {
+                    cout << p1.getName() << " responds: no, Go Fish." << endl;
+                    dealHand(d, p2, 1);
+                    goFishFlag = false;
+                }
             }
-        }
-        //if no cards in hand, pick up
-        else{
-            dealHand(d, p2, 1);
-        }
+                //if no cards in hand, pick up
+            else{
+                dealHand(d, p2, 1);
+                goFishFlag = false;
+            }
 
-        //book pairs
-        while(p2.checkHandForBook(c1,c2)){
-            p2.bookCards(c1,c2);
-        }
+            //book pairs
+            while(p2.checkHandForBook(c1,c2)){
+                p2.bookCards(c1,c2);
+            }
 
-        //show hands and deck size after turn
-        cout << p1.showHand() << endl;
-        cout << p2.showHand() << endl;
-        cout << d.size() << " cards left in the deck" << endl << endl << endl;
-    }
-
-
-    //ask one more time in case hands are not yet empty
-    if (p1.getHandSize()>0){
-        choice = p1.chooseCardFromHand();
-        cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-        //hand over card or go fish
-        if (p2.rankInHand(choice)) {
-            cout << p2.getName() << " responds: yes, I do" << endl;
-            p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
-        } else {
-            cout << p2.getName() << " responds: no, Go Fish." << endl;
-            cout <<"No more cards to deal"<<endl;
+            //show hands and deck size after turn
+            cout << p1.showHand() << endl;
+            cout << p2.showHand() << endl;
+            cout << d.size() << " cards left in the deck" << endl << endl << endl;
         }
     }
-    //book pairs
-    while(p1.checkHandForBook(c1,c2)){
-        p1.bookCards(c1,c2);
-    }
 
-    if (p2.getHandSize()>0){
-        choice = p2.chooseCardFromHand();
-        cout << p2.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-        //hand over card or go fish
-        if (p1.rankInHand(choice)) {
-            cout << p1.getName() << " responds: yes, I do" << endl;
-            p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
-        } else {
-            cout << p1.getName() << " responds: no, Go Fish." << endl;
-            cout <<"No more cards to deal"<<endl;
-        }
-    }
-    while(p2.checkHandForBook(c1,c2)){
-        p2.bookCards(c1,c2);
-    }
 
     cout << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books!\n";
     cout << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!\n";
