@@ -41,7 +41,22 @@ void Player::bookCards(Card c1, Card c2){
 //this function will check a players hand for a pair. 
 //If a pair is found, it returns true and populates the two variables with the cards tha make the pair.
 bool Player::checkHandForBook(Card &c1, Card &c2){
+    bool matchFound = false;
 
+    //loop through the array for each card and look for a matahc
+    vector<Card>::iterator it;
+    for(it = myHand.begin(); it != myHand.end() && !matchFound; ++it){
+        vector<Card>::iterator match;
+        //search for a match in the cards beyond the card
+        for(match= it; match != myHand.end() && !matchFound; ++match){
+            if((*it).getRank() == (*match).getRank()){
+                *c1 = *it;
+                *c2 = *match;
+            }
+        }
+    }
+
+    return matchFound;
 }
 
 //OPTIONAL
@@ -92,10 +107,23 @@ Card Player::removeCardFromHand(Card c){
 }
 
 string Player::showHand() const{
+    string hand = myName;
+    hand.append("'s hand: ")
+    vector<Card>::iterator it;
+    for(it = myHand.begin(); it != myHand.end(); it++){
+        hand.append((*it).toString());
+        hand.append(", ")
+    }
 
 }
 string Player::showBooks() const{
-
+    string book = myName;
+    hand.append("'s book: ")
+    vector<Card>::iterator it;
+    for(it = book.begin(); it != book.end(); it++){
+        hand.append((*it).toString());
+        hand.append(", ")
+    }
 }
 
 int Player::getHandSize() const{
