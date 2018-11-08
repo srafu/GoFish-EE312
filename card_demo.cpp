@@ -50,6 +50,9 @@ int main(){
     while(p1.checkHandForBook(c1,c2)){
         p1.bookCards(c1,c2);
     }
+    while(p2.checkHandForBook(c1,c2)){
+        p2.bookCards(c1,c2);
+    }
 
     cout << "Before first turn: \n";
     cout <<  p1.showHand() << endl;
@@ -86,7 +89,12 @@ int main(){
         cout << p1.showHand() << endl;
         cout << p2.showHand() << endl;
 
-        cout <<endl << endl;
+        cout << d.size() << " cards left in the deck" << endl << endl << endl;
+
+
+
+
+
 
         choice = p2.chooseCardFromHand();
         cout << p2.getName() <<" asks: Do you have a " << choice.getRank() << endl;
@@ -105,7 +113,7 @@ int main(){
         cout << p1.showHand() << endl;
         cout << p2.showHand() << endl;
 
-        cout <<endl << endl;
+        cout << d.size() << " cards left in the deck" << endl << endl << endl;
     }
 
 }

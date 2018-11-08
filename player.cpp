@@ -117,9 +117,13 @@ Card Player::removeCardFromHand(Card c){
     vector<Card>::iterator it;
     Card temp;
     for(it = myHand.begin(); it != myHand.end(); it++){
-        if(*it == c){
+        cout << *it << endl;
+        cout << c << endl;
+        cout << myHand.size() << endl;
+        if((*it) == c){
             temp = *it;
             myHand.erase(it);
+            break;
         }
     }
     return temp;
