@@ -2,6 +2,7 @@
 // This is a small demonstration program showing how the Card and Deck classes are used.
 #include <iostream>    // Provides cout and cin
 #include <cstdlib>     // Provides EXIT_SUCCESS
+#include <fstream>
 #include "card.h"
 #include "player.h"
 #include "deck.h"
@@ -27,19 +28,30 @@ void dealHand(Deck &d, Player &p, int numCards) {
 
 int main(){
 
+    ofstream myfile;
+    myfile.open("gofish_results.txt");
+    if (myfile.is_open()){
+        cout<<"File open";
+    }
+    else {
+        cout << "Failed to open";
+        return 0;
+    }
+
+
     //create and shuffle deck
     Deck d;
     d.shuffle();
-    cout<<"Deck shuffled!"<<endl;
+    myfile<<"Deck shuffled!"<<endl;
 
     //create two players and deal hands, and then show cards
     Player p1("Arul");
     Player p2("Juan");
     dealHand(d, p1, 7);
     dealHand(d, p2, 7);
-    cout << "Dealing cards: \n";
-    cout <<  p1.showHand() << endl;
-    cout << p2.showHand() << endl;
+    myfile << "Dealing cards: \n";
+    myfile <<  p1.showHand() << endl;
+    myfile << p2.showHand() << endl;
 
     //dummy cards for comparison
     Card c1;
@@ -55,11 +67,9 @@ int main(){
     }
 
     //show updated hands before first turn
-    cout << "\nBefore first turn: \n";
-    cout <<  p1.showHand() << endl;
-    cout << p2.showHand() << endl << endl;
-    cout << endl << endl;
-
+    myfile << "\nBefore first turn: \n";
+    myfile <<  p1.showHand() << endl;
+    myfile << p2.showHand() << endl << endl;
 
     bool goFishFlag;
 
@@ -67,22 +77,23 @@ int main(){
 
         //PLAYER 1 GO
         goFishFlag = true;
+        //repeat until Go Fish
         while (goFishFlag){
             if (p1.getHandSize() > 0) {
                 //ask for card
                 choice = p1.chooseCardFromHand();
-                cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+                myfile << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
                 //hand over card or go fish
                 if (p2.rankInHand(choice)) {
-                    cout << p2.getName() << " responds: yes, I do" << endl;
+                    myfile << p2.getName() << " responds: yes, I do" << endl;
                     p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
                 } else {
-                    cout << p2.getName() << " responds: no, Go Fish." << endl;
+                    myfile << p2.getName() << " responds: no, Go Fish." << endl;
                     dealHand(d, p1, 1);
                     goFishFlag = false;
                 }
             }
-                //if no cards in hand, pick up
+            //if no cards in hand, pick up
             else{
                 dealHand(d, p1, 1);
                 goFishFlag = false;
@@ -94,29 +105,30 @@ int main(){
             }
 
             //show hands and deck size after turn
-            cout << p1.showHand() << endl;
-            cout << p2.showHand() << endl;
-            cout << d.size() << " cards left in the deck" << endl << endl << endl;
+            myfile << p1.showHand() << endl;
+            myfile << p2.showHand() << endl;
+            myfile << d.size() << " cards left in the deck" << endl << endl << endl;
         }
 
         //PLAYER 2 GO
         goFishFlag = true;
+        //repeat until Go Fish
         while (goFishFlag){
             if (p2.getHandSize() > 0) {
                 //ask for card
                 choice = p2.chooseCardFromHand();
-                cout << p2.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+                myfile << p2.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
                 //hand over card or go fish
                 if (p1.rankInHand(choice)) {
-                    cout << p1.getName() << " responds: yes, I do" << endl;
+                    myfile << p1.getName() << " responds: yes, I do" << endl;
                     p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
                 } else {
-                    cout << p1.getName() << " responds: no, Go Fish." << endl;
+                    myfile << p1.getName() << " responds: no, Go Fish." << endl;
                     dealHand(d, p2, 1);
                     goFishFlag = false;
                 }
             }
-                //if no cards in hand, pick up
+            //if no cards in hand, pick up
             else{
                 dealHand(d, p2, 1);
                 goFishFlag = false;
@@ -128,24 +140,24 @@ int main(){
             }
 
             //show hands and deck size after turn
-            cout << p1.showHand() << endl;
-            cout << p2.showHand() << endl;
-            cout << d.size() << " cards left in the deck" << endl << endl << endl;
+            myfile << p1.showHand() << endl;
+            myfile << p2.showHand() << endl;
+            myfile << d.size() << " cards left in the deck" << endl << endl << endl;
         }
     }
 
 
-    cout << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books!\n";
-    cout << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!\n";
+    myfile << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books!\n";
+    myfile << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!\n";
 
     if (p1.getBookSize() > p2.getBookSize()){
-        cout << p1.getName() << " wins!";
+        myfile << p1.getName() << " wins!";
     }
     else if (p2.getBookSize() > p1.getBookSize()){
-        cout << p2.getName() << " wins!";
+        myfile << p2.getName() << " wins!";
     }
     else{
-        cout <<"TIE GAME";
+        myfile <<"TIE GAME";
     }
 
 
