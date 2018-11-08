@@ -16,38 +16,36 @@ void dealHand(Deck &d, Player &p, int numCards) {
             temp = d.dealCard();
             p.addCard(temp);
         }
-        if (numCards==1){
+        if (numCards==1)
             cout << p.getName() << " picks up " << temp << endl;
-        }
     }
 
 }
 
 int main(){
+
+    //create and shuffle deck
     Deck d;
     d.shuffle();
-
     cout<<"Deck shuffled!"<<endl;
 
-
+    //create two players and deal hands, and then show cards
     Player p1("Arul");
     Player p2("Juan");
-
     Player players[2];
     players[0] = p1;
     players[1] = p2;
-
     dealHand(d, p1, 7);
     dealHand(d, p2, 7);
-
-
     cout << "Dealing cards: \n";
     cout <<  p1.showHand() << endl;
-    cout << p2.showHand() << endl << endl;
+    cout << p2.showHand() << endl;
 
-
+    //dummy cards for comparison
     Card c1;
     Card c2;
+    Card choice;
+
     //first get rid of initial books
     while(p1.checkHandForBook(c1,c2)){
         p1.bookCards(c1,c2);
@@ -56,69 +54,132 @@ int main(){
         p2.bookCards(c1,c2);
     }
 
-    cout << "Before first turn: \n";
+    //show updated hands before first turn
+    cout << "\nBefore first turn: \n";
     cout <<  p1.showHand() << endl;
     cout << p2.showHand() << endl << endl;
-
     cout << endl << endl;
 
 
+    while(d.size() > 0) {
 
-
-
-    while(p2.checkHandForBook(c1,c2)){
-        p2.bookCards(c1,c2);
-    }
-
-
-    while(d.size() > 0){
-        Card choice = p1.chooseCardFromHand();
-
-        cout << p1.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-
-        if(p2.rankInHand(choice)){
-            cout << p2.getName() << " responds: yes, I do" << endl;
-            p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
-        } else {
-            cout << p2.getName() << " responds: no, Go Fish." << endl;
+        //PLAYER 1 GO
+        //ask for card
+        if (p1.getHandSize() > 0) {
+            choice = p1.chooseCardFromHand();
+            cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+            //hand over card or go fish
+            if (p2.rankInHand(choice)) {
+                cout << p2.getName() << " responds: yes, I do" << endl;
+                p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
+            } else {
+                cout << p2.getName() << " responds: no, Go Fish." << endl;
+                dealHand(d, p1, 1);
+            }
+        }
+        //if no cards in hand, pick up
+        else{
             dealHand(d, p1, 1);
         }
 
+        //book pairs
         while(p1.checkHandForBook(c1,c2)){
             p1.bookCards(c1,c2);
         }
 
+        //show hands and deck size after turn
         cout << p1.showHand() << endl;
         cout << p2.showHand() << endl;
-
         cout << d.size() << " cards left in the deck" << endl << endl << endl;
 
 
 
 
-
-
-        choice = p2.chooseCardFromHand();
-        cout << p2.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
-        if(p1.rankInHand(choice)){
-            cout << p1.getName() << " responds: yes, I do" << endl;
-            p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
-        } else {
-            cout << p1.getName() << " responds: no, Go Fish." << endl;
+        //PLAYER 2 GO
+        //ask for card
+        if (p2.getHandSize()>0) {
+            choice = p2.chooseCardFromHand();
+            cout << p2.getName() <<" asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+            //hand over card or go fish
+            if (p1.rankInHand(choice)) {
+                cout << p1.getName() << " responds: yes, I do" << endl;
+                p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
+            } else {
+                cout << p1.getName() << " responds: no, Go Fish." << endl;
+                dealHand(d, p2, 1);
+            }
+        }
+        //if no cards in hand, pick up
+        else{
             dealHand(d, p2, 1);
-        }    
+        }
 
+        //book pairs
         while(p2.checkHandForBook(c1,c2)){
             p2.bookCards(c1,c2);
         }
 
+        //show hands and deck size after turn
         cout << p1.showHand() << endl;
         cout << p2.showHand() << endl;
-
         cout << d.size() << " cards left in the deck" << endl << endl << endl;
     }
 
+
+    //ask one more time in case hands are not yet empty
+    if (p1.getHandSize()>0){
+        choice = p1.chooseCardFromHand();
+        cout << p1.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+        //hand over card or go fish
+        if (p2.rankInHand(choice)) {
+            cout << p2.getName() << " responds: yes, I do" << endl;
+            p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
+        } else {
+            cout << p2.getName() << " responds: no, Go Fish." << endl;
+            cout <<"No more cards to deal"<<endl;
+        }
+    }
+    //book pairs
+    while(p1.checkHandForBook(c1,c2)){
+        p1.bookCards(c1,c2);
+    }
+
+    if (p2.getHandSize()>0){
+        choice = p2.chooseCardFromHand();
+        cout << p2.getName() << " asks: Do you have a " << choice.rankString(choice.getRank()) << "" << endl;
+        //hand over card or go fish
+        if (p1.rankInHand(choice)) {
+            cout << p1.getName() << " responds: yes, I do" << endl;
+            p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
+        } else {
+            cout << p1.getName() << " responds: no, Go Fish." << endl;
+            cout <<"No more cards to deal"<<endl;
+        }
+    }
+    while(p2.checkHandForBook(c1,c2)){
+        p2.bookCards(c1,c2);
+    }
+
+    cout << endl << p1.getName() << "'s Score is: " << p1.getBookSize() << " books!\n";
+    cout << p2.getName() << "'s Score is: " << p2.getBookSize() << " books!\n";
+
+    if (p1.getBookSize() > p2.getBookSize()){
+        cout << p1.getName() << " wins!";
+    }
+    else if (p2.getBookSize() > p1.getBookSize()){
+        cout << p2.getName() << " wins!";
+    }
+    else{
+        cout <<"TIE GAME";
+    }
+
+
+
 }
+
+
+
+
 
 
 

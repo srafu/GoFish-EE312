@@ -21,7 +21,6 @@ void Player::addCard(Card c){
 }
 
 void Player::bookCards(Card c1, Card c2){
-    cout << "Booking " << c1 << " and " << c2 << endl;
     //add the cards to the book
     myBook.push_back(c1);
     myBook.push_back(c2);
@@ -41,6 +40,7 @@ void Player::bookCards(Card c1, Card c2){
             break;
         }
     }
+    cout << myName << " booked the " << c1.rankString(c1.getRank()) << "'s\n";
 }
 
 //OPTIONAL
@@ -95,13 +95,15 @@ Card Player::getCardOfSameRank(Card c) const{
 //hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand(){
     if(myHand.size() > 0){
-        Card temp = myHand[idx];
-        idx++;
+        //if index is out of bounds, make zero
         if (idx>=myHand.size()){
             idx = 0;
         }
+        Card temp = myHand[idx];
+        idx++;
         return temp;
-    } else {
+    }
+    else {
         return Card(rand()%14, Card::spades);
     }
 }
