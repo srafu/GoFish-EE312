@@ -59,7 +59,7 @@ string Card::rankString(int r) const {
     if (r > 1 && r < 11){
         ostringstream s;
         s << r;
-        string num = string(s.str());
+        rankPrint = string(s.str());
     }
     else if (r == 1)
         rankPrint = "A";
