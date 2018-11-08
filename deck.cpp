@@ -4,6 +4,8 @@
 #include "card.h"
 #include "deck.h"
 
+using namespace std;
+
 static const int SIZE = 52;
 Card myCards[SIZE];
 int myIndex; 
@@ -14,7 +16,7 @@ Deck::Deck(){
 	for(int i = 0; i < 4; i++){
 		for(int j = 1; j < 13 + 1; j++){
 			//j*i + j returns current card in deck
-			myCards[j*i + j] = Card(j, suits[i]);
+			myCards[(j-1)*i + (j-1)] = Card(j, suits[i]);
 		}
 	}
 	//seed the random number
@@ -37,7 +39,7 @@ Card Deck::dealCard(){
 
 		return currentCard;
 	} else {
-		return Card();
+		return Card(-1, Card::spades);
 	}
 }
 
