@@ -9,21 +9,55 @@
 using namespace std;
 
 
+void dealHand(Deck &d, Player &p, int numCards)
+{
+   for (int i=0; i < numCards; i++)
+      p.addCard(d.dealCard());
+}
+
 int main(){
-    Card card1(1, Card::spades);
-    Card card2(12, Card::hearts);
-    Card card3(4, Card::hearts);
-    Card card4(1, Card::spades);
+    Deck d;
+    d.shuffle();
 
-    //cout<<card1<<endl;
-    //cout<<card2<<endl;
+    Player p1("Arul");
+    Player p2("Juan");
 
-    Deck myDeck;
-    myDeck.shuffle();
-    Card fromDeck = myDeck.dealCard();
-    while(fromDeck.getRank() != -1){
-        cout << fromDeck << endl;
-        fromDeck = myDeck.dealCard();
+    Player players[2];
+    players[0] = p1;
+    players[1] = p2;
+
+    dealHand(d, p1, 7);
+    dealHand(d, p2, 7);
+
+    Card c1;
+    Card c2;
+    //first get rid of intial books
+    while(p1.checkHandForBook(c1,c2)){
+        p1.bookCards(c1,c2);
+    }
+
+    while(p2.checkHandForBook(c1,c2)){
+        p2.bookCards(c1,c2);
+    }
+
+    while(d.size() > 0){
+        Card choice = p1.chooseCardFromHand();
+        if(p2.rankInHand(choice)){
+            p1.addCard(p2.removeCardFromHand(p2.getCardOfSameRank(choice)));
+        } else {
+            dealHand(d, p1, 1);
+        }
+
+        cout << p1.showHand() << endl;
+
+        choice = p2.chooseCardFromHand();
+        if(p1.rankInHand(choice)){
+            p2.addCard(p1.removeCardFromHand(p1.getCardOfSameRank(choice)));
+        } else {
+            dealHand(d, p2, 1);
+        }    
+
+        cout << p2.showHand() << endl;         
     }
 
 }
@@ -57,11 +91,7 @@ int main( )
 
 
 
-void dealHand(Deck &d, Player &p, int numCards)
-{
-   for (int i=0; i < numCards; i++)
-      p.addCard(d.dealCard());
-}
+
    
 */
 
