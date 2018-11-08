@@ -10,6 +10,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <cstdlib>
+#include <ctime>
 
 
 #include "card.h"
@@ -22,6 +24,7 @@ class Player
     Player();
 
     Player(string name) {
+       srand((unsigned)time(0));
        myName = name;
     }
 

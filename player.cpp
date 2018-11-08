@@ -13,8 +13,7 @@ string myName;
 Player::Player(){
     //give player no name and clear the hand and book
     myName = "";
-    myBook.clear();
-    myHand.clear();
+    srand((unsigned)time(0));
 }
 
 void Player::addCard(Card c){
@@ -95,12 +94,16 @@ Card Player::getCardOfSameRank(Card c) const{
 //uses some strategy to choose one card from the player's
 //hand so they can say "Do you have a 4?"
 Card Player::chooseCardFromHand(){
-    Card temp = myHand[idx];
-    idx++;
-    if (idx>=myHand.size()){
-        idx = 0;
+    if(myHand.size() > 0){
+        Card temp = myHand[idx];
+        idx++;
+        if (idx>=myHand.size()){
+            idx = 0;
+        }
+        return temp;
+    } else {
+        return Card(rand()%14, Card::spades);
     }
-    return temp;
 }
 
 //Does the player have the card c in her hand?
