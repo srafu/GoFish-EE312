@@ -86,7 +86,7 @@ Card Player::getCardOfSameRank(Card c) const{
     int rank = c.getRank();
     int handSize = myHand.size();
     for (int i = 0; i<handSize; i++){
-        if (myHand[i].getRank()==rank && myHand[i] != c){
+        if (myHand[i].getRank()==rank){
             return myHand[i];
         }
     }
