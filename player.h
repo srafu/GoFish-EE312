@@ -26,6 +26,7 @@ class Player
     Player(string name) {
        srand((unsigned)time(0));
        myName = name;
+       idx=0;
     }
 
     string getName() const {
@@ -86,7 +87,7 @@ class Player
     vector <Card> myBook;
     
     string myName;
-    int idx = 0;    //index for choosing card to ask
+    int idx;    //index for choosing card to ask
    
 };
 

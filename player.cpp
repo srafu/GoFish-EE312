@@ -14,6 +14,7 @@ Player::Player(){
     //give player no name and clear the hand and book
     myName = "";
     srand((unsigned)time(0));
+	idx=0;
 }
 
 void Player::addCard(Card c){
