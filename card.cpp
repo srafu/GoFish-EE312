@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <string>
+#include <sstream>
 #include "card.h"
 
 using namespace std;
@@ -56,8 +57,9 @@ string Card::rankString(int r) const {
     string rankPrint;
 
     if (r > 1 && r < 11){
-        string num = to_string(r);
-        rankPrint = num;
+        ostringstream s;
+        s << num;
+        string num = string(s.str());
     }
     else if (r == 1)
         rankPrint = "A";
